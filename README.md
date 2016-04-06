@@ -23,8 +23,8 @@ igjava-webworkshop
 
 11 minify / uglify 2 sheets --> Ahmed
 
-12 angular 2 --> Floren
-13 typescript configuratie compiling --> Floren
+12 angular 2 --> Ahmed
+13 typescript configuratie compiling --> Ahmed
 
 14 typings 1 sheet --> Ahmed
 14a lite-server --> Ahmed
