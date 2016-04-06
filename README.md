@@ -15,7 +15,7 @@ igjava-webworkshop
 7a oefening
 
 8 opzetten test harnass Karma / Jasmine / Protractor elk 2 sheets --> Ahmed
-8a oefening met test
+8a oefening met test --> Ahmed
 9 inject into index.html 1 sheet
 
 10 Opzetten watch browsersync / browserfy 1 sheet -> Ahmed
