@@ -98,3 +98,9 @@ crashlytics-build.properties
 fabric.properties
 
 # Created by .ignore support plugin (hsz.mobi)
+
+#node
+node_modules/
+src/app/**/*.js
+src/app/**/*.map
+typings/
