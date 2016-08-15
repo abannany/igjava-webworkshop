@@ -8,7 +8,7 @@ igjava-webworkshop
 
 4 gulp 2 sheets sources / sinks /pipes -- Floren
 5 maak een dist directory en zet al je resources daarin.
-6 gulp om resources samen te voegen tot 2 bundles app.js / vender.js
+6 gulp om resources samen te voegen tot 2 bundles app.js / vendor.js
 6a oefening om gulp op te zetten
 
 7 stylesheet compiling SASS / LESS voor alle 2 1 sheet --> Floren
