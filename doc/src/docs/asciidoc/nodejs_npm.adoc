@@ -1,0 +1,18 @@
+## npm
+
+npm is de package management tool van nodejs en komt mee met de installatie van nodejs. Dus om te beginnen moet nodejs
+worden geinstalleerd. Dit kan doormiddel van de installer die je kan downloaden van https://nodejs.org/en/[nodejs]
+
+### belangrijke commando's
+
+[source]
+----
+npm init# <1>
+npm install# <2>
+npm install -save-dev <package-naam># <3>
+----
+<1> Dit commando genereert een package.json bestand in de huidige directory
+<2> Dit commando download alle dependencies die zijn beschreven in package.json en slaat deze op in een folder node_modules.
+<3> De commando dowload een extra module (package-name) en al zijn afhankelijkheden. Tevens wordt package-name toegevoegd als afhankelijkheid.
+
+Er zijn nog meer commando's. Bovenstaande zijn echter de belangrijkste voor de workshop. Voor informatie over andere commando's kun je kijken in de https://docs.npmjs.com[documentatie].

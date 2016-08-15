@@ -1,0 +1,30 @@
+{
+  "name": "igjava-webworkshop",
+  "version": "1.0.0",
+  "description": "Dit is het project voor de webtooling workshop",
+  "main": "index.html",
+  "directories": {
+    "doc": "doc"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/florendg/igjava-webworkshop.git"
+  },
+  "keywords": [
+    "npm",
+    "gulp",
+    "angular",
+    "karma"
+  ],
+  "author": "Floren de Gier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/florendg/igjava-webworkshop/issues"
+  },
+  "homepage": "https://github.com/florendg/igjava-webworkshop#readme"
+}

@@ -1,0 +1,59 @@
+=== Oefening 1
+
+Als eerste opdracht moet met behulp van npm init een project worden opgezet.
+We gaan er van uit dat nodejs en dus npm geinstalleerd is.
+
+. Maak een directory aan voor het project
+
+[source]
+----
+mkdir webworkshop
+----
+
+[start = 2]
+. ga naar de directory en type npm init
+
+[source]
+----
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg> --save` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+name: (tmp) demo
+version: (1.0.0)
+description: Dit een demo
+entry point: (index.js) index.html
+test command:
+git repository:
+keywords:
+author: Floren de Gier
+license: (ISC) ? MIT
+----
+
+Het resultaat
+
+[source, json]
+----
+{
+  "name": "demo",# <1>
+  "version": "1.0.0",# <2>
+  "description": "Dit een demo",
+  "main": "index.html",
+  "scripts": {# <3>
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Floren de Gier",
+  "license": "MIT"
+}
+----
+<1> De naam van het project
+<2> Versie nummer
+<3> In de script sectie worden een aantal hulp commando's gedefinieerd.
+
+Hierme is het npm project geinitialiseerd.
