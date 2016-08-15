@@ -1,0 +1,7 @@
+### Opdracht 1: Installeer nodejs
+
+. Ga naar https://nodejs.org/en/ en download de LTS installer voor jou machine
+. open een terminal en controleer de versie van nodejs --> node --version
+. check de versie van npm --> npm --version
+
+Hiermee is aangetoond dat node en npm beschikbaar zijn. De volgende stap is het opzetten van de webapplicatie.
