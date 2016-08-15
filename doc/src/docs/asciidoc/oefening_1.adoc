@@ -1,5 +1,8 @@
 === Oefening 1
 
+Als eerste opdracht moet met behulp van npm init een project worden opgezet.
+We gaan er van uit dat nodejs en dus npm geinstalleerd is.
+
 . Maak een directory aan voor het project
 
 [source]
