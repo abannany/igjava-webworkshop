@@ -1,0 +1,4 @@
+## nodejs / npm
+
+npm is de package management tool van nodejs en komt mee met de installatie van nodejs. Dus om te beginnen moet nodejs
+worden geinstalleerd. Dit kan doormiddel van de installer die je kan downloaden van https://nodejs.org/en/[nodejs]
