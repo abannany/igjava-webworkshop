@@ -1,0 +1,5 @@
+= Gulp
+
+== Introductie
+
+Binnen de workshop wordt http://gulpjs.com[gulp] gebruikt als build tool. gulp is een in de basis eenvoudige tool die werkt met het principe van een pipe-line
