@@ -6,19 +6,28 @@
 var gulp = require('gulp');
 var del = require('del');
 
+var paths = {
+    assets: {
+        bootstrap: "node_modules/bootstrap/dist"
+    },
+    src: {
+        style: "src/resources/style"
+    }
+};
+
 /** Default task.
  * This one is called when gulp is exucuted without arguments.
  */
-gulp.task('default',function() {
+gulp.task('default', function () {
     gulp.src(["index.html",
-              "node_modules/bootstrap/dist/**/*.css",
-              "node_modules/bootstrap/dist/**/*.css.map"])
+        paths.assets.bootstrap + "/**/*.css",
+        paths.assets.bootstrap + "/**/*.css.map"])
         .pipe(gulp.dest("dist"));
 });
 
 /**
  * Cleanup dist folder.
  */
-gulp.task('clean',function(cb) {
-    return del(["dist"],cb);
+gulp.task('clean', function (cb) {
+    return del(["dist"], cb);
 });

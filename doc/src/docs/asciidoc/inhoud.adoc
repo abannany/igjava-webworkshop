@@ -16,3 +16,8 @@ include::installatie_nodejs.adoc[]
 include::nodejs_npm.adoc[]
 
 include::oefening_1.adoc[]
+
+include::gulp.adoc[]
+
+include::oefening_3a.adoc[]
+
