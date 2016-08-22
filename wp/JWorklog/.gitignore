@@ -1,0 +1,17 @@
+
+#Gradle related 
+build/
+.gradle/
+
+#netbeans
+.nb-gradle
+web/nbproject
+
+#eclipse related
+.settings/
+.classpath
+.project
+
+#webrelated
+web/node_modules/
+web/dist

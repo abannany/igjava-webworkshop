@@ -1,0 +1,28 @@
+<div>
+    <center><h1>Worklog</h1></center>
+    <div>
+        <fa [name]="plus"></fa>
+        <button (click)="addLog()"type="button" class="btn btn-default">Create</button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Log message</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let log of logs">
+                <td>{{log.id}}</td>
+                <td>{{log.stringDate}}</td>
+                <td>{{log.textPart}}</td>
+                <td>
+                    <button (click)="editLog(log)" type="button" class="btn btn-default">Edit</button>
+                    <button (click)="deleteLog(log.id)"type="button" class="btn btn-default">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

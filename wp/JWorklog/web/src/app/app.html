@@ -1,0 +1,4 @@
+<div>
+    <worklog-viewer *ngIf="!editing" (edit)="editLog($event)"></worklog-viewer>
+    <worklog-editor *ngIf="editing" [logToEdit]="logToEdit" (onChange)="doneEditing($event)"></worklog-editor>
+<div>

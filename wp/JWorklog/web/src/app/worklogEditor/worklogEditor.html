@@ -1,0 +1,12 @@
+<div>
+    <center><h1>Edit worklog</h1></center>
+
+    <form role="form">
+        <div class="form-group">
+            <label for="logText">Log text:</label>
+            <textarea rows="25" cols="100" id="logText" [(ngModel)]="logToEdit.logText"  required class="form-control"> Remember me</textarea>
+        </div>
+
+        <center><button class="btn btn-default" (click)="done()">Done</button></center>
+    </form>
+</div>

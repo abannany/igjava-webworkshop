@@ -1,0 +1,17 @@
+{
+    "css": [
+        "bootstrap/dist/css/bootstrap.css"
+    ],
+    "js": [
+        "@angular/**",
+        "core - js/client/shim.min.js",
+        "rxjs/**",
+        "reflect - metadata/Reflect.js",
+        "systemjs/dist/system - polyfills.js",
+        "systemjs/dist/system.src.js",
+        "moment/moment.js",
+        "ng2 - bootstrap/bundles/ng2 - bootstrap.min.js",
+        "zone.js/dist/**",
+        "angular2-fontawesome/**"
+    ]
+}
