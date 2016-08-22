@@ -1,4 +1,4 @@
-=== oefening 3a
+=== oefening 2
 In deze oefening wordt gulp gebruikt om een webpagina samen met zijn afhankelijkheden in een distributie folder te plaatsen.
 De volgende zaken komen aanbod.
 

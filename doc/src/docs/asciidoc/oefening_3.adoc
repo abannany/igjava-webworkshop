@@ -1,0 +1,8 @@
+=== oefening 3
+
+In deze oefening gaan we met behulp van sass een stylesheet bouwen welke de bestaande bootstrap style
+combineert met een eigen style.
+
+- variabelen
+- mixins
+- import
