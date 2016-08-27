@@ -11,8 +11,14 @@ var notify = require('gulp-notify');
 var paths = {
     nodeDir: "./node_modules",
     assets: {
-        bootstrap: "node_modules/bootstrap/dist",
-        bootstrapsass: "node_modules/bootstrap-sass/assets"
+        bootstrap: {
+            sass: "node_modules/bootstrap-sass/assets/stylesheets",
+            fonts: "node_modules/bootstrap-sass/assets/fonts/"
+        },
+        fontawesome: {
+            fonts: "node_modules/font-awesome/fonts/",
+            sass: "node_modules/font-awesome/scss"
+        }
     },
     src: {
         style: "src/resources/style"
@@ -23,22 +29,28 @@ var paths = {
  * This one is called when gulp is exucuted without arguments.
  */
 gulp.task('default',['sass'], function () {
-    gulp.src(["index.html",
-        paths.assets.bootstrap + "/**/*.css",
-        paths.assets.bootstrap + "/**/*.css.map"])
+    gulp.src(["index.html"])
         .pipe(gulp.dest("dist"));
 });
 
-gulp.task('sass',function(){
+gulp.task('sass',['fonts'],function(){
     gulp.src('src/app/style/style.scss')
         .pipe(sass(sass({
             style: 'compressed',
             loadPath: [
-                paths.nodeDir + '/bootstrap-sass/assets/stylesheets'
+                './src/app/style',
+                paths.assets.bootstrap.sass,
+                paths.assets.fontawesome.sass
             ]
         }) ).on("error", notify.onError(function (error) {
         return "Error: " + error.message;})))
         .pipe(gulp.dest('dist/css'));
+});
+
+
+gulp.task('fonts',function(){
+    gulp.src(paths.assets.fontawesome.fonts+"**.*")
+        .pipe(gulp.dest("dist/fonts/"));
 });
 
 /**
