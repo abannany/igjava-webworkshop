@@ -21,7 +21,8 @@ var paths = {
         }
     },
     src: {
-        style: "src/resources/style"
+        style: "src/app/style/",
+        resources: "src/app/style/reources/"
     },
 };
 
@@ -33,12 +34,12 @@ gulp.task('default',['sass'], function () {
         .pipe(gulp.dest("dist"));
 });
 
-gulp.task('sass',['fonts'],function(){
+gulp.task('sass',['fonts','resources'],function(){
     gulp.src('src/app/style/style.scss')
         .pipe(sass(sass({
             style: 'compressed',
             loadPath: [
-                './src/app/style',
+                paths.src.style,
                 paths.assets.bootstrap.sass,
                 paths.assets.fontawesome.sass
             ]
@@ -51,6 +52,11 @@ gulp.task('sass',['fonts'],function(){
 gulp.task('fonts',function(){
     gulp.src(paths.assets.fontawesome.fonts+"**.*")
         .pipe(gulp.dest("dist/fonts/"));
+});
+
+gulp.task('resources',function() {
+    gulp.src(paths.src.resources +"/**.*")
+        .pipe(gulp.dest("dist/css/resources"));
 });
 
 /**
