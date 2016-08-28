@@ -1,5 +1,28 @@
-= Gulp
+<<<
+== Gulp
 
-== Introductie
+=== introductie
 
 Binnen de workshop wordt http://gulpjs.com[gulp] gebruikt als build tool. gulp is een in de basis eenvoudige tool die werkt met het principe van een pipe-line
+
+=== taak
+Binnen gulp worden acties beschreven in een taak.
+
+[source,javascript]
+----
+gulp.task('default', ['dependency'], function () { # <1>
+
+});
+----
+<1> De gulp taak heeft 3 elementen waarvan er 1 optioneel is. De naam van de taak
+('default' in dit geval), een optionele lijst van afhankelijke taken ('dependency' in dit geval) en een function. De
+functie bevat de logica die in de taak uitgevoerd moet worden.
+
+In het bovenstaande voorbeeld wordt eerst de taak 'dependency' uitgevoerd en vervolgens de functie.
+De naam 'default' voor de taak heeft een aparte betekenis. Als je gulp aanroept zonder argumenten, dan wordt deze taak
+uitgevoerd.
+
+=== pipeline
+
+=== watch
+
