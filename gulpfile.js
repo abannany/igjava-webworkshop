@@ -8,6 +8,7 @@ var del = require('del');
 var sass = require('gulp-sass');
 var notify = require('gulp-notify');
 
+
 var paths = {
     nodeDir: "./node_modules",
     assets: {
@@ -57,6 +58,10 @@ gulp.task('fonts',function(){
 gulp.task('resources',function() {
     gulp.src(paths.src.resources +"/**.*")
         .pipe(gulp.dest("dist/css/resources"));
+});
+
+gulp.task('watch', function() {
+    gulp.watch('index.html',['default']);
 });
 
 /**

@@ -80,4 +80,14 @@ gulp.task('clean', function (cb) {
 });
 ----
 
+[start=3]
+. schrijf een taak om bestanden te bewaken.
+[source,javascript]
+----
+gulp.task('watch', function() {
+    gulp.watch('index.html',['default']);
+});
+----
+
+
 
