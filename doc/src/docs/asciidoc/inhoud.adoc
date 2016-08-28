@@ -19,5 +19,9 @@ include::oefening_1.adoc[]
 
 include::gulp.adoc[]
 
-include::oefening_3a.adoc[]
+include::oefening_2.adoc[]
+
+include::sass.adoc[]
+
+include::oefening_3.adoc[]
 
