@@ -1,5 +1,62 @@
-= Gulp
+<<<
+== Gulp
 
-== Introductie
+=== introductie
 
 Binnen de workshop wordt http://gulpjs.com[gulp] gebruikt als build tool. gulp is een in de basis eenvoudige tool die werkt met het principe van een pipe-line
+
+=== taak
+Binnen gulp worden acties beschreven in een taak.
+
+[source,javascript]
+----
+gulp.task('default', ['dependency'], function () { # <1>
+
+});
+----
+<1> De gulp taak heeft 3 elementen waarvan er 1 optioneel is. De naam van de taak
+('default' in dit geval), een optionele lijst van afhankelijke taken ('dependency' in dit geval) en een function. De
+functie bevat de logica die in de taak uitgevoerd moet worden.
+
+In het bovenstaande voorbeeld wordt eerst de taak 'dependency' uitgevoerd en vervolgens de functie.
+De naam 'default' voor de taak heeft een aparte betekenis. Als je gulp aanroept zonder argumenten, dan wordt deze taak
+uitgevoerd.
+
+=== pipeline
+
+De kracht van gulp schuilt in het feit dat verschillende opdrachten achter elkaar "gepiped" worden. Daarbij
+wordt de invoer (gulp.src) eerst in geheugen geladen, daarna worden alle bewerkingen in geheugen uigevoerd
+en ten slotte wordt het resultaat weggeschreven (gulp.dst).
+
+Een voorbeeld:
+[source,javascript]
+----
+gulp.task('fonts',function(){
+    gulp.src(paths.assets.fontawesome.fonts+"**.*") <1>
+        .pipe(gulp.dest("dist/fonts/")); <2> <3>
+});
+----
+<1> De bron is bestaat uit alle bestanden in het gegeven path <source>
+<2> De ingelezen bestend worden "gepiped" naar <pip>
+<3> de opdracht gulp.dst die de font bestanden in de gegeven folder weg schrijft. <sink>
+
+De pipe opdracht kan een willekeurig aantal keren herhaald worden.
+
+=== watch
+
+Naast gulp.task kent gulp ook gulp.watch. De structuur lijkt op een normale taak. Echter, nu wordt inplaats
+van gulp.src, gulp.watch gebruikt. De taak start en blijft draaien net zolang tot de gebruiker
+de uitvoering onderbreekt. In onderstaand voorbeeld zal telkens de taak met de naam default worden
+uitevoerd als index.html wordt aangepast.
+
+[source, javascript]
+----
+gulp.task('watch', function() {
+    gulp.watch('index.html' <1>
+    ,['default']  ); <2>
+});
+----
+
+<1> Het bestand dat wordt bewaakt.
+<2> De actie die wordt uigevoerd als het bewaakte bestand is veranderd.
+

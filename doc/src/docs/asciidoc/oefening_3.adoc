@@ -1,0 +1,95 @@
+=== oefening 3
+In deze oefening wordt gulp gebruikt om een webpagina samen met zijn afhankelijkheden in een distributie folder te plaatsen.
+De volgende zaken komen aanbod.
+
+. opzetten van het gebruik van gulp
+. installeren en gebruiken van plugins voor gulp.
+. schrijven van een task in gulp
+. uitvoeren van een gulp taak
+
+==== project geschikt maken voor het gebruik van gulp.
+Gulp moet worden geinstalleerd. Dit kan met het onderstaande commando vanuit de root van je project
+[source,shell]
+----
+npm install gulp --save-dev
+----
+==== een eerste gulp taak
+. maak een gulp bestand (open een nieuw bestand in de root directory van je project en noem dit *gulpfile.js*.
+
+[source,javascript]
+----
+'use strict'
+
+/**
+ * Gulp tasks for the demonstration
+ */
+var gulp = require('gulp'); #<1>
+
+var paths = { #<2>
+    assets: {
+        bootstrap: "node_modules/bootstrap/dist"
+    },
+    src: {
+        style: "src/resources/style"
+    }
+};
+
+gulp.task('default', function () {
+    gulp.src(["index.html",  #<3>
+        paths.assets.bootstrap + "/**/*.css",
+        paths.assets.bootstrap + "/**/*.css.map"])
+        .pipe(gulp.dest("dist")); #<4>
+});
+----
+<1> Voordat gulp gebruikt kan worden met deze worden geinitialiseerd
+<2> Het de paths variabelen is bedoeld om bepaalde configuratie eigenschappen op 1 plek
+te definieren.
+<3> In de gulp.task wordt de pipeline gevolgd. Met gulp.src wordt aangegeven op welke "sources"
+de taak werkt.
+<4> via het pipe commando wordt uiteindelijk de sink (gulp.dest) aangeroepen. Deze
+zorgt ervoor dat als resultaat de bestanden die bij gulp.src zijn gevonden worden
+opgeslagen in de "dist" folder.
+
+Het resultaat is dat de index.html uit de root van het project en de bootstrap stylesheets
+in de dist folder staan. Om te testen kun je index.html ui de dist folder in een browser openen.
+
+==== De clean taak
+
+Als tweede opdracht moet een gulp task worden geschreven om "dist" folder weer te wissen.
+
+. installeer de "del" plugin
+[source,shell]
+----
+npm install --save-dev del
+----
+[start=2]
+. maak del bekend binnen de gulpfile
+[source,javascript]
+----
+var del = require("del");
+----
+[start=3]
+. schrijf een clean taak
+[source,javascript]
+----
+/**
+ * Cleanup dist folder.
+ */
+gulp.task('clean', function (cb) {
+    return del(["dist"], cb);
+});
+----
+
+==== De watch taak
+
+[start=3]
+. schrijf een taak om bestanden te bewaken.
+[source,javascript]
+----
+gulp.task('watch', function() {
+    gulp.watch('index.html',['default']);
+});
+----
+
+
+

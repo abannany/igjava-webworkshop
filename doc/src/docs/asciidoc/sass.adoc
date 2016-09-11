@@ -1,0 +1,72 @@
+<<<
+== SASS
+
+SASS is een "CSS Extension Framework". In de basis kan de funcionaliteit opgesplitst worden
+in 2 delen;
+
+. Een API waarme een stylesheet opgebouwd en uitgebreidt kan worden
+. Een 'compiler' die een serie losse SASS bestanden aan elkaar knopt om er een stylesheet van te maken
+
+In de workshop laten we een paar basis commando's zien. Veel meer informatie is te vinden op de http://sass-lang.com[sass website].
+
+=== het import statement
+
+een SASS input bestand kan weer andere SASS input bestanden importeren. De import statements worden
+sequentieel verwerkt.
+
+[source, sass]
+----
+$font-family-base: 'Lucida Sans', sans-serif; <1>
+
+@import "variables"; <2>
+
+
+// Import bootstrap and fontawesome <3>
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../../node_modules/font-awesome/scss/font-awesome";
+
+.altran-logo { <4>
+  float: right;
+  width : 200px;
+}
+----
+<1> variabele die het gebruikte font zet
+<2> import het bestand "variables.scss" uit de huidige directory
+<3> import de scss bestanden van bootstrap
+<4> definieer de instellingen van het logo.
+
+
+=== variabelen
+
+Met behulp van variabelen kunnen de eigenschappen van de uiteindelijke stylesheets worden ingesteld. Denk bijvoorbeeld
+aan het default font, kleur, etc. Het is verstandig om dit soort eigenschappen bij elkaar te plaatsen. +
+De scss bestanden van Bootstrap leveren al een set variabelen. Door deze te overshrijven voor de aanroep van het import
+statement kan het uiterlijk van Bootstrap aangepast worden.
+
+
+=== integratie met Gulp
+
+Om SASS te kunnen gebruiken vanuit Gulp, moet een plugin worden gebruikt en de naam gulp-sass. Hiermee kan vanuit gulp
+de SASS compiler worden aangeroepen. De SASS compiler maakt 1 CSS bestand door het verwerken
+van een SCSS file.
+
+[source,javascript]
+----
+gulp.task('sass',['fonts','resources'],function(){
+    gulp.src('src/app/style/style.scss') <1>
+        .pipe(sass(sass({
+            style: 'compressed',
+            loadPath: [ <2>
+                paths.src.style,
+                paths.assets.bootstrap.sass,
+                paths.assets.fontawesome.sass
+            ]
+        }) ).on("error", notify.onError(function (error) {
+        return "Error: " + error.message;})))
+        .pipe(gulp.dest('dist/css')); <3>
+});
+----
+<1> Start scss bestand. Dit is het bestand dat de opbouw van de stylesheet beschrijft.
+<2> Opsomming van locaties waar de scss bestanden staan.
+<3> output folder.
+

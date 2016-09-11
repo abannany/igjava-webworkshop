@@ -11,8 +11,17 @@ Ahmed Bannany <ahmed.bannany@altran.com>; Floren de Gier <floren.degier@altran.c
 :numbered:
 include::introductie.adoc[]
 
-include::installatie_nodejs.adoc[]
+include::oefening_1.adoc[]
 
 include::nodejs_npm.adoc[]
 
-include::oefening_1.adoc[]
+include::oefening_2.adoc[]
+
+include::gulp.adoc[]
+
+include::oefening_3.adoc[]
+
+include::sass.adoc[]
+
+include::oefening_4.adoc[]
+

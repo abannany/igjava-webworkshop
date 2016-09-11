@@ -1,0 +1,26 @@
+=== oefening 4
+
+In deze oefening gaan we met behulp van sass een stylesheet bouwen welke de bestaande bootstrap style
+combineert met een eigen style.
+
+Als simpel vootbeeld gaan we de voorbeeld webpagina opmaken in de huisstijl van Altran.
+
+We vervangen de verwijzing naar de 3 stylesheet files in index.html met 1 stylesheet die met SASS is gecompileerd
+
+==== De benodigde paketten installeren.
+
+In deze stap worden de benodigde paketten met npm geinstalleerd.
+
+bootstrap-sass -> De sass versie van bootstrap
+fonteawesome -> Een bibliotheek met iconen.
+
+gulp-sass -> de sass integratie in gulp.
+
+- variabelen
+- import
+
+==== Maak een root scss file.
+
+
+
+==== Pas de stylesheet aan aan de Altran huisstijl
