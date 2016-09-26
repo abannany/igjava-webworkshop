@@ -104,7 +104,7 @@ doc/build
 dist
 
 #node
-*/**/node_modules/
+node_modules/
 */**/bower_components/
 src/app/**/*.js
 src/app/**/*.map
