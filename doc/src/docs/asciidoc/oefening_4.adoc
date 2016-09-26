@@ -21,6 +21,50 @@ gulp-sass -> de sass integratie in gulp.
 
 ==== Maak een root scss file.
 
+De eigen style definities komen in src/app/style. Hier komen 2 bestanden. Het eerste bestand
+is het "root" deocument. Sass gebruikt dit bestand als start punt voor de compilatie van de stylesheet.
+
+. Maak het bestand style.scss
+[source, css]
+----
+//Root SCSS file
+
+@import "variables"; //customization <1>
+
+// Import bootstrap and fontawesome
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "../../../node_modules/font-awesome/scss/font-awesome"; <2>
+
+//extra style to size and positiont the Altran logo.
+.altran-logo { <3>
+  float: right;
+  width : 200px;
+}
+----
+<1> Eerst wordt het scss bestand met de variabelen definitie geimplementeerd. De variabelen worden vervolgens
+toegepast in de bestanden die worden geimporteerd.
+<2> Hier worden de stylen van bootstrap en fontawesome (iconen) geimporteerd.
+<3> Tenslotte wordt er nog een stijl element toegevoegd om het Altran logo op de juiste plaats te zetten.
 
 
 ==== Pas de stylesheet aan aan de Altran huisstijl
+
+We gaan nu onze site aanpassen aan style van Altran. Op connect is een document te vinden waarin
+beschreven staat hoe de stijl vorm moet krijgen. In onze variabelen definitie
+gaan we deze stijl elementen vast leggen.
+
+----
+[source,css]
+// custumization to adapt bootstrap to the Altran Company Styleguide.
+
+$text-color: #5c7f92; <1>
+$font-family-base: 'Lucida Sans', sans-serif; <2>
+----
+
+<1> Altran tekst kleur
+<2> Altran font
+
+bouw nu de side
+
+. gulp
+
