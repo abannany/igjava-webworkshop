@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+	<title>Workshop draaiboek</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body ng-controller="DraaiboekController" ng-cloak="">
+	<div class="container">
+		<div class="row">
+			<h1 class="col-md-2 col-md-offset-5">Draaiboek</h1>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading"></div>
+			<div class="panel-body">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>Wat</th>
+							<th>Maken</th>
+							<th>Presenteren</th>
+							<th>Sheet nr</th>
+							<th>Klaar</th>
+							<th>Commentaar</th>
+						</tr>
+					</thead>
+					</tbody>
+					<tr ng-repeat="sheetInfo in draaiboekService.getDraaiboek()">
+						<td ng-class="{'is-oefning':sheetInfo.isOefning}">{{sheetInfo.wat}}</td>
+						<td>{{sheetInfo.maken}}</td>
+						<td>{{sheetInfo.presenteren}}</td>
+						<td>{{sheetInfo.sheets}}</td>
+						<td ng-class="{'done':sheetInfo.klaar,'not-done':!sheetInfo.klaar}">{{sheetInfo.klaar}}</td>
+						<td>{{sheetInfo.comment}}</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+
+
+		<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script src="../bower_components/angular/angular.min.js"></script>
+
+		<script src="app/data/DraaiboekData.js"></script>
+		<script src="app/main.js"></script>
+		<script src="app/services/DraaiboekService.js"></script>
+		<script src="app/controllers/DraaiboekController.js"></script>
+</body>
+</html>

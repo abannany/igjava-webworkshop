@@ -1,0 +1,97 @@
+=== Exercise 1
+
+In this workshop Jasmine as unit test framework shall be used. Jasmine is BDD test framework. Jasmine was inspired
+by Rspec and Jspec. Jasmine is the most used test framework in javascript. The angular team used also this
+framework.
+
+The objectives in the exercise:
+
+* Who to write a Jasmine test
+* Who to run the test in a browser
+
+==== Steps
+
+. Perform the following commands
+
+[source, bash]
+----
+ # Go to exercises/simple-jasmine-test
+ cd exercises/simple-jasmine-test
+
+ # Create a folder named spec
+ mkdir spec
+ cd spec
+
+ # Create a file named CalculatorSpec.js
+ touch CalculatorSpec.js
+----
+[start = 2]
+. Add the following code snippet in the created file CalculatorSpec.js
+
+[source, js]
+----
+describe("Calculator", function () {  # <1>
+  describe("when addition is performed", function () {
+    
+    var calculator;
+
+    beforeEach(function () { # <2>
+      calculator = new Calculator();
+    });
+
+    it("should return 5 when 3 is added to 2", function () { # <3>
+      expect(calculator.add(3, 2)).toEqual(5);
+    });
+
+    it("should return 20 when 10 is added to 10", function () { # <3>
+      expect(calculator.add(10, 10)).toEqual(20);
+    });
+  });
+});
+----
+----
+<1> Here we define the test suite. The name of the suite is 'Calculator'.  
+<2> Fixture setup. This step is performed for every test
+<3> The test specs to test the scenario's
+----
+
+[start = 3]
+. Open the file SpecRunner.html of the 'simple-jasmine-test' folder with your favorite text editor.
+** The following shall be visible
+
+[source, html]
+----
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Jasmine Spec Runner v2.4.1</title>
+
+  <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.4.1/jasmine_favicon.png">
+  <link rel="stylesheet" href="lib/jasmine-2.4.1/jasmine.css"> # <1>
+
+  <script src="lib/jasmine-2.4.1/jasmine.js"></script> # <2>
+  <script src="lib/jasmine-2.4.1/jasmine-html.js"></script>
+  <script src="lib/jasmine-2.4.1/boot.js"></script>
+
+  <!-- include source files here... -->
+  <script src="src/Calculator.js"></script> # <3>
+
+  <!-- include spec files here... -->
+  <script src="spec/CalculatorSpec.js"></script> # <4>
+
+</head>
+
+<body>
+</body>
+</html>
+----
+----
+<1> Loading the Jasmine style sheet
+<2> The Jasmine library is loaded
+<3> Object under test is loaded
+<4> Test specs are loaded
+----
+[start = 4]
+. Open the file SpecRunner.html in the browser.
+** When the file is opened the a overview of the jasmine test is depicted 

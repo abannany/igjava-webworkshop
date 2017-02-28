@@ -1,0 +1,50 @@
+=== Exercise 3
+
+In this exercise the Angular 2 Cli shall be used to create an Angular 2 project.
+
+The objectives of this exercise are:
+
+* Creating an angular 2
+* Adding bootstrap 3 
+
+==== Steps
+
+. Go the the exercise folder and perform the following commands
+
+[source,shell]
+----
+npm install -g @angular/cli
+ng new my-app # <1>
+cd my-app
+ng serve # <2>
+----
+----
+<1> Creating a new application. 
+<2> 'ng serve' is used to start our application
+----
+
+The created application is a template application that contains:
+
+* Typescript configuration
+* Karma configuration
+* .angular-cli.json is part of the webpack configuration
+
+
+[start=3]
+. Perform the following commands to add the bootstrap libraries
+
+[source,shell]
+----
+npm install ng2-bootstrap bootstrap --save
+----
+
+[start=4]
+. Add the following in the .angular-cli.json:
+
+[source,javascript]
+----
+npm install ng2-bootstrap bootstrap --save
+----
+
+
+

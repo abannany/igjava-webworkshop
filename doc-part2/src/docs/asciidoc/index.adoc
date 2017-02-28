@@ -1,0 +1,20 @@
+# Workshop Web tools.
+Ahmed Bannany <ahmed.bannany@altran.com>; Floren de Gier <floren.degier@altran.com>
+:toc: left
+:toc-title: Table of content
+:toclevels: 4
+:icons: font
+:icon-set: fa
+:source-highlighter: coderay
+
+:numbered:
+include::testing.adoc[]
+
+include::exercise_1.adoc[]
+
+include::exercise_2.adoc[]
+
+include::angular2.adoc[]
+
+include::exercise_3.adoc[]
+

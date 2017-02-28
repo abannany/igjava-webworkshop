@@ -1,0 +1,14 @@
+== Testing
+
+Javascript is a standardized programming language. The last version of javascript is 'ECMAScript 2016'.
+There a lot of frameworks that can be used to test the javascript code. There to kinds of tests. 
+Unit test and e2e (end to end) testing. With the first one a piece of code can be tested. With e2e 
+testing a test can be performed from the users point of view. In the Javascript world there are a lot 
+of test frame works. The following is a snapshot of this test frameworks:
+
+* QUnit
+* MochaJs
+* Jasmine
+
+In this section whe shall write a unit test with Jasmine. Normally we use Karma to runt the tests. But
+in this section just Jasmine is used. 

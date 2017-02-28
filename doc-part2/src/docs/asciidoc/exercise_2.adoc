@@ -1,0 +1,119 @@
+=== Exercise 2
+
+In this exercise we shall use karma. Karma is a test runner that runs tests on several browsers.
+
+Without configuration for karma, karma shall do nothing. We must tel karma:
+
+* which tests and libraries to load.
+* on which browser to run the tests.
+* which tasks to perform before the tests are performed.
+* to run the tests several times.
+
+All of this must be included in a karma configuration file. 
+
+The objectives for this exercise is to:
+* learn how to install karma.
+* create a simple karma configuration.
+* use Gulp to run karma.
+
+==== Steps
+
+. Go to folder 'Exercises/karma-gulp'.
+. Execute the following commands
+
+[source,shell]
+----
+npm install -g karma
+----
+
+[start=3]
+. Create  a file named 'karma.conf.js' and add the following code snippet to this file.
+
+[source, javascript]
+----
+module.exports = function (config) {
+    config.set({
+        basePath: '',
+        frameworks: ['jasmine', 'angular-filesort'], # <1>
+        files: [ # <2>
+            'bower_components/angular/angular.js',
+            'bower_components/angular-mocks/angular-mocks.js',
+            'src/**/*.js',
+            'tests/*Spec.js',
+            'tests/**/*Spec.js'
+        ],
+        angularFilesort: { # <3>
+            whitelist: [
+                'src/**/*.js'
+            ]
+        },
+
+        exclude: [],
+
+        reporters: ['progress'],
+        port: 9876,
+        colors: true,
+        preprocessors: {},
+        logLevel: config.LOG_INFO,
+        autoWatch: true,
+
+        browsers: ['Chrome_without_security'], # <4>
+
+        customLaunchers: { # <5>
+            Chrome_without_security: {
+                base: 'Chrome',
+                flags: ['--disable-web-security']
+            }
+        },
+
+        singleRun: true,
+        captureTimeout: 60000
+    });
+
+    # <6>
+};
+----
+----
+<1> Configure which test framework to use. Here we use Jasmine. The 'angular-filesort' is used to load the 
+the files in the correct order.  
+<2> Loading the libraries and tests to use
+<3> Configure which file to sort by the 'angular-filesort' module
+<4> Which browser to use to execute the tests
+<5> Configuration of the browser part
+<6> See karma site for further explanation (http://karma-runner.github.io/1.0/config/configuration-file.html) 
+----
+
+[start=4]
+. Create a file with the name 'gulpfile.js' and add the following code snippet to this file.
+
+[source, javascript]
+----
+var gulp = require('gulp');
+var Server = require('karma').Server;
+
+gulp.task('test', function (done) { # <1>
+    var karmaConfig = { 
+        configFile: __dirname + '/karma.conf.js' # <2>
+    }; 
+    new Server(karmaConfig, done).start();
+});
+
+gulp.task('test-debug', function (done) { # <3>
+    var karmaConfig = {
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: false # <4>
+    };
+    new Server(karmaConfig, done).start();
+});
+
+gulp.task('default', ['test-once']);
+----
+----
+<1> Create a task named 'test' to run karma and close the browser.
+<2> With configFile the location of the karma configuration can be set.
+<3> Create the task 'test-debug' to run karma and let the browser open.
+<4> The property singleRun is set to false. This is done prevent karma to close the browser. 
+----
+
+There is no plugin loaded in the gulp file to run karma. The was one named 'gulp-karma' but this plugin has
+been deprectated. 

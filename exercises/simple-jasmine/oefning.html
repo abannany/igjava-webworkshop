@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Workshop draaiboek</title>
+    <link rel="stylesheet" href="./lib/highlightjs/styles/default.css">
+    <script src="./lib/highlightjs/highlight.pack.js"></script>
+    <script src="./lib/jquery/dist/jquery.min.js"></script>
+    <script src="oefning.js"></script>
+
+</head>
+
+<body>
+
+    <ol>
+        <li>
+            Maak in deze directory en map aan genaamt spec
+        </li>
+        <li>Maak in de gemaakte map een file aan genaamd CalculatorSpec.js aan en voeg de volgende code in deze file
+            <pre>
+                <code class "js">
+describe("Calculator: Add", function() {
+  var calculator;
+
+  beforeEach(function() {
+    calculator = new Calculator();
+  });
+
+  it("An addition of 3 and 2 is 5", function() {
+    expect(calculator.add(3,2)).toEqual(5);
+  });
+
+  it("An addition of 10 and 10 is 20", function() {
+    expect(calculator.add(10,10)).toEqual(20);
+  });
+
+});
+                    
+                </code>
+            </pre>
+        </li>
+        <li>
+                Open de file SpecRunner.html met een web-brouwser
+        </li>
+    </ol>
+</body>
+
+</html>

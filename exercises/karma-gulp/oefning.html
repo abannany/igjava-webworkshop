@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Workshop draaiboek</title>
+    <link rel="stylesheet" href="./bower_components/highlightjs/styles/default.css">
+    <script src="./bower_components/highlightjs/highlight.pack.js"></script>
+    <script src="./bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="oefning.js"></script>
+
+</head>
+
+<body>
+
+    <ol>
+        <li>
+            Maak een file aan genaamd karma.conf.js in deze directory en kopieer het volgende in deze file
+            <pre>
+                <code class="javascript">
+module.exports = function (config) {
+    config.set({
+        basePath: '',
+        frameworks: ['jasmine', 'angular-filesort'],
+        files: [
+            'bower_components/angular/angular.js',
+            'bower_components/angular-mocks/angular-mocks.js',
+            'src/**/*.js',
+            'tests/*Spec.js',
+            'tests/**/*Spec.js'
+        ],
+        angularFilesort: {
+            whitelist: [
+                'src/**/*.js'
+            ]
+        },
+
+        exclude: [],
+
+        reporters: ['progress'],
+        port: 9876,
+        colors: true,
+        preprocessors: {},
+        logLevel: config.LOG_INFO,
+        autoWatch: true,
+
+        browsers: ['Chrome_without_security'],
+
+        customLaunchers: {
+            Chrome_without_security: {
+                base: 'Chrome',
+                flags: ['--disable-web-security']
+            }
+        },
+
+        singleRun: false,
+        captureTimeout: 60000
+    });
+};
+        </code>
+            </pre>
+        </li>
+        <li>Maak een een 'gulpfile.js' aan en voeg het volgede to in deze file
+            <pre>
+                <code class "js">
+var gulp = require('gulp');
+var Server = require('karma').Server;
+
+/**
+* This task is used to run once
+*/
+gulp.task('test-once', function (done) {
+    new Server({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: true
+    }, done).start();
+});
+
+/**
+* This task is used to run all the time. When a source file is changed the tests shall be run again
+*/
+gulp.task('test-cont', function (done) {
+    new Server({
+        configFile: __dirname + '/karma.conf.js'
+    }, done).start();
+});
+
+gulp.task('default', ['test-once']);
+                </code>
+            </pre>
+        </li>
+    </ol>
+</body>
+</html>
