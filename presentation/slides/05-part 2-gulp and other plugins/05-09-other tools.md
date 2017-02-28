@@ -9,3 +9,6 @@
     * Module bundler
     * Is used by the Angular 2 CLI
     * See (https://survivejs.com/webpack/appendices/comparison/) for more module bundlers
+* Yeoman
+    * Web app scaffolding tool
+    * Use 'generator-gulp-angular'
