@@ -35,7 +35,7 @@ is het "root" deocument. Sass gebruikt dit bestand als start punt voor de compil
 @import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "../../../node_modules/font-awesome/scss/font-awesome"; <2>
 
-//extra style to size and positiont the Altran logo.
+//extra style to size and position the Altran logo.
 .altran-logo { <3>
   float: right;
   width : 200px;
@@ -53,8 +53,11 @@ We gaan nu onze site aanpassen aan style van Altran. Op connect is een document 
 beschreven staat hoe de stijl vorm moet krijgen. In onze variabelen definitie
 gaan we deze stijl elementen vast leggen.
 
-----
+[start=2]
+. maak het bestand variables.scss met de volgende inhoud.
+
 [source,css]
+----
 // custumization to adapt bootstrap to the Altran Company Styleguide.
 
 $text-color: #5c7f92; <1>
@@ -64,7 +67,136 @@ $font-family-base: 'Lucida Sans', sans-serif; <2>
 <1> Altran tekst kleur
 <2> Altran font
 
-bouw nu de side
+==== Gebruik de style in de html pagina.
 
-. gulp
+[start=3]
+. Verander de stylesheet verwijzing van index.html door de onderstaande code.
+[source,html]
+----
+...
+<head>
+    ...
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+...
+----
+
+==== Voeg het logo toe aan html pagina
+
+[start=4]
+. Vervang de header van de pagina met de volgende regel.
+
+[source,html]
+----
+<body>
+<div class="row"><img src="css/resources/altran.jpg" class="altran-logo"/></div>
+ ...
+</body>
+----
+
+==== Bouw de webapplicatie met SASS in Gulp
+
+Nu is de stylesheet code gemaakt en is de webpagina aangepast om de nieuwe stylesheet
+te gebruiken. Rest ons nog om gulp te vertellen hoe we dit gaan doen.
+Voordat we de taak aan Gulp gaan toevoegen volgt eerst nog een stap om de organisatie
+van het bestand beter te krijgen.
+
+[start=5]
+. Voeg de onderstaande code toe aan gulpfile.js
+
+===== de paths variabelen.
+De Gulp file bestaat uit Javascript. Javascript ondersteunt variabelen in het JSON formaat (logisch natuurlijk).
+We kunnen nu een JSON object maken waarin we alle gebruikte paden opslaan. Als er dan een path anders wordt hoeven
+we de code maar op 1 plek te wijzigen.
+
+[source,javascript]
+----
+
+var paths = {
+    nodeDir: "./node_modules", #<1>
+    assets: {
+        bootstrap: { #<2>
+            sass: "node_modules/bootstrap-sass/assets/stylesheets",
+            fonts: "node_modules/bootstrap-sass/assets/fonts/"
+        },
+        fontawesome: { #<3>
+            fonts: "node_modules/font-awesome/fonts/",
+            sass: "node_modules/font-awesome/scss"
+        }
+    },
+    src: { #<4>
+        style: "src/app/style/",
+        resources: "src/app/style/resources/"
+    },
+};
+----
+<1> De directory waar de dependencies staan die we met npm install hebben geinstalleerd.
+<2> De directory met de bootstrap dependencies.
+<3> De directory met de font awesome dependecies.
+<4> De directory met onze sass definities en bijbehorende resources.
+
+===== De SASS task
+
+Voordat we de Sass task kunnen maken, moeten er not wat voorbereidingen gedaan. De fonts
+moeten naar de distributie folder verplaatst worden.
+
+[source,javascript]
+----
+gulp.task('fonts',function(){
+    gulp.src(paths.assets.fontawesome.fonts+"**.*")
+        .pipe(gulp.dest("dist/fonts/"));
+});
+----
+
+Ook de resources die wij zelf toevoegen moeten naar de distributie folder verplaatst worden.
+
+[source, javascript]
+----
+gulp.task('resources',function() {
+    gulp.src(paths.src.resources +"/**.*")
+        .pipe(gulp.dest("dist/css/resources"));
+});
+----
+
+Tenslotte moeten we de gulp task maken die de sass code omzet in een stylesheet en deze
+in de distributie folder plaatst.
+
+[source, javascript]
+----
+gulp.task('sass',['fonts','resources'],function(){ #<1>
+    gulp.src('src/app/style/style.scss') #<2>
+        .pipe(sass(sass({ #<3>
+            style: 'compressed',
+            loadPath: [ #<4>
+                paths.src.style,
+                paths.assets.bootstrap.sass,
+                paths.assets.fontawesome.sass
+            ]
+        }) ).on("error", notify.onError(function (error) { #<5>
+        return "Error: " + error.message;})))
+        .pipe(gulp.dest('dist/css')); #<6>
+});
+----
+<1> het command gulp sass is afhankelijke van 'fonts' en 'resources'
+<2> Het input document voor de taak: ons scss document.
+<3> Het begin van het eigenlijke sass commando.
+<4> zoek pad voor de data die wordt gebruikt vooor het compileren van de stylesheet.
+<5> actie die wordt uitgevoerd als de sass compilatie faalt.
+<6> Het bestand style.css wordt in de sub folder css in de distributie folder geplaatst
+
+
+==== En nu alles samen.
+
+[start=6]
+. Maak de default taak in gulp afhankelijk van de sass taak.
+
+[source,javascript]
+----
+gulp.task('default',['sass'] , function () {
+    gulp.src(["index.html"])
+        .pipe(gulp.dest("dist"));
+});
+----
+[start=7]
+. Run gulp en de applicatie wordt gebouwd.
 

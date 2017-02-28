@@ -12,7 +12,10 @@ Gulp moet worden geinstalleerd. Dit kan met het onderstaande commando vanuit de 
 [source,shell]
 ----
 npm install gulp --save-dev
+npm install --save bootstrap #<1>
 ----
+<1> install bootstrap css.
+
 ==== een eerste gulp taak
 . maak een gulp bestand (open een nieuw bestand in de root directory van je project en noem dit *gulpfile.js*.
 

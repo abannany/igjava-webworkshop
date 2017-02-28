@@ -23,7 +23,7 @@ var paths = {
     },
     src: {
         style: "src/app/style/",
-        resources: "src/app/style/reources/"
+        resources: "src/app/style/resources/"
     },
 };
 
