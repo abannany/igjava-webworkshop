@@ -1,5 +1,5 @@
-# Workshop Web tools.
-Ahmed Bannany <ahmed.bannany@altran.com>; Floren de Gier <floren.degier@altran.com>
+# Workshop Web tools - Part 2
+Ahmed Bannany <ahmed.bannany@altran.com>
 :toc: left
 :toc-title: Table of content
 :toclevels: 4

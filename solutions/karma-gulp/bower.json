@@ -1,0 +1,27 @@
+{
+  "name": "testen",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "ahmed.bannany <a.bannany32@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/florendg/igjava-webworkshop",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "grunt": "^1.0.1",
+    "angular": "angularjs#^1.5.8",
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {
+    "karma": "^0.4.6",
+    "angular-mocks": "^1.5.8"
+  }
+}

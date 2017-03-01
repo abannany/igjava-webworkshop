@@ -43,7 +43,12 @@ npm install ng2-bootstrap bootstrap --save
 
 [source,javascript]
 ----
-npm install ng2-bootstrap bootstrap --save
+      ...
+      "styles": [
+        "styles.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
+      ],
+      ...
 ----
 
 

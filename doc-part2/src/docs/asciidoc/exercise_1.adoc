@@ -1,13 +1,13 @@
 === Exercise 1
 
-In this workshop Jasmine as unit test framework shall be used. Jasmine is BDD test framework. Jasmine was inspired
-by Rspec and Jspec. Jasmine is the most used test framework in javascript. The angular team used also this
+In this exercise Jasmine as unit test framework shall be used. Jasmine is BDD test framework. Jasmine was inspired
+by Rspec and Jspec. Jasmine is the most used test framework in Javascript world. The angular team used also this
 framework.
 
-The objectives in the exercise:
+The objectives of this exercise is:
 
-* Who to write a Jasmine test
-* Who to run the test in a browser
+* Writing a simple Jasmine test
+* To run the test in a browser
 
 ==== Steps
 
