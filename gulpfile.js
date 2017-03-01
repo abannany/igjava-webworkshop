@@ -38,7 +38,7 @@ gulp.task('default',['sass'], function () {
 gulp.task('sass',['fonts','resources'],function(){
     gulp.src('src/app/style/style.scss')
         .pipe(sass(sass({
-            style: 'compressed',
+            outputStyle: 'compressed',
             loadPath: [
                 paths.src.style,
                 paths.assets.bootstrap.sass,
@@ -67,6 +67,6 @@ gulp.task('watch', function() {
 /**
  * Cleanup dist folder.
  */
-gulp.task('clean', function (cb) {
+gulp.task('clean', function(cb)  {
     return del(["dist"], cb);
 });

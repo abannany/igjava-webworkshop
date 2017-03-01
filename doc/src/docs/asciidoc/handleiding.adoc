@@ -25,3 +25,13 @@ include::sass.adoc[]
 
 include::oefening_4.adoc[]
 
+include::testing.adoc[]
+
+include::exercise_1.adoc[]
+
+include::exercise_2.adoc[]
+
+include::angular2.adoc[]
+
+include::exercise_3.adoc[]
+

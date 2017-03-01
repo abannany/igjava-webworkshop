@@ -109,3 +109,7 @@ fabric.properties
 */**/lib/
 .vscode/
 
+dist
+node_modules
+typings
+
